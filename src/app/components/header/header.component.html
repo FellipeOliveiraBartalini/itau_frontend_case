@@ -1,0 +1,18 @@
+<header class="w-full flex justify-center items-center py-3 bg-[#FF6200]">
+    <div class="w-1/2 flex justify-between">
+        <div class="flex items-center gap-4">
+            <img
+                src="https://www.itau.com.br/media/dam/m/59ca6000bfbf59d6/original/ITAU_LOGO_HEX_48X48.png"
+                width="48"
+                alt="logo case itaú"
+                draggable="false"
+            />
+            <h1 class="text-white font-bold text-lg">TODO Manager</h1>
+        </div>
+        <app-button
+            text="Create TODO"
+            color="white"
+            (onBtnClick)="handleCreateNewTodo()"
+        ></app-button>
+    </div>
+</header>

@@ -1,0 +1,9 @@
+<div
+    class="w-3/5 mx-auto flex flex-col gap-8 p-8 border-[1px] rounded-lg hover:border-[#FF6200] transition-all duration-300"
+>
+    <app-todo-item
+        *ngFor="let todo of todos"
+        [todo]="todo"
+    >
+    </app-todo-item>
+</div>
