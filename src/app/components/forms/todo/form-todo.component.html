@@ -1,0 +1,44 @@
+<section>
+    <h2 class="text-[#2a2a2a] font-bold text-lg">{{ label }}</h2>
+    <form
+        class="flex flex-row justify-between items-center"
+        [formGroup]="todoFormGroup"
+        (submit)="onSubmit()"
+    >
+        <label for="title"
+            >Title:
+            <input
+                type="text"
+                name="title"
+                formControlName="title"
+                placeholder="Enter title"
+        /></label>
+
+        <label
+            for="description"
+            class="flex flex-row gap-4"
+            >Description:
+            <input
+                type="text"
+                name="description"
+                formControlName="description"
+                placeholder="Enter description"
+        /></label>
+
+        <label for="completed"
+            >Completed:
+            <input
+                label="Completed"
+                placeholder="Completed"
+                type="checkbox"
+                name="completed"
+                formControlName="completedAt"
+        /></label>
+
+        <app-button
+            type="submit"
+            [text]="label"
+            [disabled]="!todoFormGroup.valid"
+        ></app-button>
+    </form>
+</section>

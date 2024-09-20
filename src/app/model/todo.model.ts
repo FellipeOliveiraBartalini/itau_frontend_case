@@ -3,5 +3,5 @@ export interface Todo {
     title: string;
     description: string;
     createdAt: string;
-    completedAt?: string | null;
+    completedAt: string | null;
 }

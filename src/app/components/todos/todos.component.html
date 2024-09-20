@@ -1,9 +1,34 @@
-<div
-    class="w-3/5 mx-auto flex flex-col gap-8 p-8 border-[1px] rounded-lg hover:border-[#FF6200] transition-all duration-300"
->
-    <app-todo-item
-        *ngFor="let todo of todos"
-        [todo]="todo"
-    >
-    </app-todo-item>
-</div>
+<table class="w-full mx-auto flex flex-col gap-8">
+    <thead class="w-full flex justify-between text-left px-4">
+        <th class="w-1/4">Title</th>
+        <th class="w-1/3">Description</th>
+        <th class="w-[15%]">Completed</th>
+        <th class="w-[15%]">Created</th>
+    </thead>
+    <tbody>
+        <tr
+            *ngFor="let todo of todos"
+            class="w-full flex justify-between text-left px-4 py-2 cursor-pointer even:bg-gray-50 hover:bg-gray-200 rounded-lg transition-all duration-300"
+            (click)="onSelectTodo(todo.id)"
+        >
+            <td class="w-1/4">{{ todo.title }}</td>
+            <td class="w-1/3">{{ todo.description }}</td>
+            <td class="w-[15%]">
+                @if (todo.completedAt) {
+                    <span
+                        class="block w-full text-center font-bold text-green-400 border-2 border-green-400 rounded-lg"
+                        >Yes</span
+                    >
+                } @else {
+                    <span
+                        class="block w-full text-center font-bold text-red-400 border-2 border-red-400 rounded-lg"
+                        >No</span
+                    >
+                }
+            </td>
+            <td class="w-[15%]">
+                {{ formatStringDateToString(todo.createdAt) }}
+            </td>
+        </tr>
+    </tbody>
+</table>

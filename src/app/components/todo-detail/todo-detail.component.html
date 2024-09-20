@@ -1,0 +1,44 @@
+@if (todo) {
+    <h2 class="text-lg font-bold mb-6">Todo selected</h2>
+    <div class="flex flex-col gap-4">
+        <h2 class="font-bold">
+            Title: <span class="font-normal">{{ todo.title || 'NC' }}</span>
+        </h2>
+        <p class="font-bold">
+            Description:
+            <span class="font-normal">{{ todo.description || 'NC' }}</span>
+        </p>
+        <p class="font-bold">
+            Completed:
+            @if (todo.completedAt) {
+                <span
+                    class="w-full px-2 text-center font-bold text-green-400 border-2 border-green-400 rounded-lg"
+                    >Yes</span
+                >
+            } @else {
+                <span
+                    class="w-full px-2 text-center font-bold text-red-400 border-2 border-red-400 rounded-lg"
+                    >No</span
+                >
+            }
+        </p>
+        <p class="font-bold">
+            Created at:
+            <span class="font-normal">{{
+                formatStringDateToString(todo.createdAt)
+            }}</span>
+        </p>
+    </div>
+    <div class="mt-8 flex gap-4">
+        <app-button
+            text="Edit"
+            (onClick)="onEdit()"
+        ></app-button>
+        <app-button
+            text="Delete"
+            (onClick)="onDelete()"
+        ></app-button>
+    </div>
+} @else {
+    <h2 class="font-bold text-lg">Select Todo</h2>
+}

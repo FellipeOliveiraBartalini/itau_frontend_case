@@ -1,8 +1,29 @@
-<div class="w-screen h-screen bg-white">
+<div class="bg-white">
     <app-header></app-header>
-    <main class="w-3/5 h-full my-8 mx-auto flex flex-col gap-8">
-        <app-todos></app-todos>
-        <app-todos></app-todos>
+    <main class="w-4/5 h-auto my-8 mx-auto flex flex-col gap-8">
+        <app-form-todo
+            class="itau-container"
+            [label]="label"
+            [selectedTodoId]="selectedTodoId"
+            [todoFormGroup]="todoFormGroup"
+        ></app-form-todo>
+
+        <div class="w-full flex flex-row gap-8">
+            <app-todos
+                class="itau-container w-4/5"
+                [selectedTodoId]="selectedTodoId"
+                (onSetSelectedTodoId)="setSelectedTodoId($event)"
+                [todoFormGroup]="todoFormGroup"
+            ></app-todos>
+
+            <app-sidebar class="w-2/5">
+                <app-todo-detail
+                    [selectedTodoId]="selectedTodoId"
+                    [todoFormGroup]="todoFormGroup"
+                    (onSetTodoFormGroup)="setTodoFormGroup($event)"
+                ></app-todo-detail>
+            </app-sidebar>
+        </div>
     </main>
     <app-footer></app-footer>
 </div>
