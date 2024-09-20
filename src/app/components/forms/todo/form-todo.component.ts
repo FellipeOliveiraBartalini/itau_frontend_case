@@ -15,7 +15,8 @@ export class TodoFormComponent {
     @Input() label: string;
     @Input() selectedTodoId: number;
     @Input() todoFormGroup: FormGroup;
-    @Output() onGetAll = new EventEmitter();
+    // TODO: after submiting get all todos in the main list
+    // @Output() onGetAll = new EventEmitter();
 
     constructor(private todoService: TodoService) {}
 
@@ -24,11 +25,7 @@ export class TodoFormComponent {
         const todoDto: TodoDto = this.todoFormGroup.value;
         todoDto.createdAt = new Date().toISOString();
         this.todoService.create(todoDto).subscribe((newTodo) => {
-            this.onGetAll.emit();
+            // this.onGetAll.emit();
         });
-    }
-
-    onEdit(id: string): void {
-        this.label = 'Edit Todo';
     }
 }
